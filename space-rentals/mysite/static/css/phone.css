@@ -1,0 +1,61 @@
+@media only screen and (max-width:1000px){
+    
+    .navbar{
+        justify-content: center;
+        flex-direction: column;
+    }
+    .navlist{
+        display: none;
+    }
+    .logo{
+        right: 0;
+    }
+    .logo img{
+        width: 80px;
+        height: 70px;
+    }
+
+    .burger{
+        display: flex;
+    }
+
+    /*services*/
+    .card{
+        flex-direction: column;
+    }
+    .card-content-head{
+        text-align: center;
+        outline: none;
+        cursor: pointer;
+    }
+    .form{
+        width: 80%;
+    }
+    .about .card{
+        width: 300px;
+    }
+    .pgList .card{
+        width: 70%;
+    }
+    .pg{
+        margin-top: 10px;
+        height: fit-content;
+    }
+
+    .pg .card-img{
+        width: 90%;
+    }
+    .pg .content{
+        width: 80%;
+    }
+
+    .reviews .card{
+        width: 300px;
+        align-items: flex-start;
+    }
+    .pg .row{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

@@ -1,0 +1,165 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block body %}
+
+<section id="home" class="home">
+    <h2 class="type">New To the Town?</h2>
+    <h2 class="type">Are You a student?</h2>
+    <h2 class="type">Want a home like feel?</h2>
+    <h2 class="type">Answer is:</h2>
+    <h2 class="type" style="text-align: center;">Space rentals</h2>
+</section>
+<section class="services" id="services">
+    <h1>Services !</h1>
+    <div class="container">
+        <div class="card">
+            <div class="card-img">
+                <img src="{% static 'images/accomodation.svg' %}" alt="">
+            </div>
+            <div class="card-content">
+                <div class="card-content-head">
+                    Accomodation
+                </div>
+                <div class="card-content-body">
+                    This is the main service we ought to provide to our user. If you are new to a town and want to
+                    rent a place and if you ask a wrong person they will direct you to a place so expensive you cant
+                    afford and then you will you will waste money in that place or will waste money finding a new
+                    one. But here at space rentals we provide you an online platform that will show you hostels and
+                    pgs near you that have considerate rates and better quality. You can book it from our platform
+                    to get an extra discount.
+                </div>
+            </div>
+        </div>
+        <div class="card reverse">
+            <div class="card-img">
+                <img src="{% static 'images/transport.png' %}" alt="">
+            </div>
+            <div class="card-content">
+                <div class="card-content-head">
+                    Transportation
+                </div>
+                <div class="card-content-body">
+                    Now that you have aqcuired a living place, its not like you came to this city just to be in a
+                    room. You obviously will need to travel to places and that requires transportation but being in
+                    new city you dont have vehicles of your owm and renting a cab is way too expensive on a daily
+                    basis. Even using
+                    buses can be frustating. So we here provide transportation facilities for our customers at a
+                    very considerate prices not charging anything above the money spent in transportation.
+                    It is a very good deal. well ofcourse this transportation is optional but if you need we are
+                    just a click away.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">
+                <img src="{% static 'images/food.png' %}" alt="">
+            </div>
+            <div class="card-content">
+                <div class="card-content-head">
+                    Quality food
+                </div>
+                <div class="card-content-body">
+                    Food is one of the major issue that everyone have with their pgs or hostels. But not to worry we
+                    are here for rescue. we know what importance does taste and quality have for people who have
+                    left their home and come to a new city. So we will be providing wide range of meals on a daily
+                    basis or ocassional basis your choice. the meal will be from nearby restaurant at considerate
+                    rates and hygenic. again not compulsory but just a click away.
+                </div>
+            </div>
+        </div>
+        <div class="card reverse">
+            <div class="card-img">
+                <img src="{% static 'images/books.png' %}" alt="">
+            </div>
+            <div class="card-content">
+                <div class="card-content-head">
+                    Books for Student
+                </div>
+                <div class="card-content-body">
+                    If you are a student and have come to new city for college or coaching your study is all that
+                    matters to you and to us as well. as our founders started this platform as a student. they have
+                    made a special arrangement for students :- BOOKS we will be providing books to student customers
+                    for free for rent just like a library but here u get the books just in clicks. We wont be
+                    charging anything for that. This feature can be utilised by any user but it was specially made
+                    for students
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="user" id="user">
+    <div class="row">
+        <button class="form-btn selected-form" id="form-1" onclick="showSignup()">Signup</button>
+        <button class="form-btn" id="form-2" onclick="showLogin()">Login</button>
+    </div>
+    <div class="container" id="form">
+        <form action="/?cat=signup" class="form" method="post" id="signupForm">
+            {% csrf_token %}
+            <input type="text" required placeholder="Enter the desired username" name="username">
+            <input type="email" required placeholder="Enter the Email" name="email">
+            <input type="password" required placeholder="Enter a password" name="password">
+            <input type="password" required placeholder="Enter password again" name="cpassword">
+            <button class="btn">Signup !</button>
+        </form>
+        <form action="/?cat=login" class="form" method="post" id="loginForm" style="display:none;">
+            {% csrf_token %}
+            <input type="text" required placeholder="Enter the username" name="username">
+            <input type="password" required placeholder="Enter  password" name="password">
+            <button class="btn">Login !</button>
+        </form>
+    </div>
+</section>
+<section class="about" id="about">
+    <h1>Some words by our founders:</h1>
+    <div class="container">
+        <div class="card">
+            <div class="card-img">
+                <img src="{% static 'images/dp.jpg' %}" alt="">
+            </div>
+            <div class="content">
+                <div class="card-content-head">
+                    Shashank Kumar
+                </div>
+                <div class="card-content-body">
+                    We started this project as one of the projects to participate in a college event but then after
+                    sometime it became the project of our life. We spent days and days on thinking how to setup
+                    this? Where to start from and most importantly will it work? But with all the blessings it
+                    worked thankyou all for supporting
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">
+                <img src="{% static 'images/aman.jpg' %}" alt="">
+            </div>
+            <div class="content">
+                <div class="card-content-head">
+                    Aman Pratap Singh
+                </div>
+                <div class="card-content-body">
+                    This idea came to me to start a hostel and pgs renting community. As we were hostelites and i
+                    saw the conditions there. it wasnt good. they overcharged everything and the service wasnt theat
+                    good. So I gave this idea to my frds and we all started working on this project.
+
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">
+                <img src="{% static 'images/bhaskar.jpg' %}" alt="">
+            </div>
+            <div class="content">
+                <div class="card-content-head">
+                    Bhaskar Sharma
+                </div>
+                <div class="card-content-body">
+                    I was not a hostelite like Shashank or Aman but i wanted to be a part of something cool and when
+                    they told me aout their idea I was impressed by the idea and wanted to help them in anyway
+                    possible. Hence we all worked hard to get this up and running.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock body %}

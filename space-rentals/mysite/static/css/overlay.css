@@ -1,0 +1,64 @@
+.burger{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    right: 5%;
+    top: 30%;
+    overflow: hidden;
+    transition:  width 1s;
+}
+
+.line{
+    width: 40px;
+    height: 7px;
+    background-color: white;
+    margin-top: 3px;
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: black;
+    opacity: 0.8;
+    height: 0vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: all 1s;
+}
+
+.close{
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    right: 3%;
+    top: 4%;
+}
+
+.overlay-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-box a{
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    border-radius: 8px;
+    padding: 2%;
+    width: 100%;
+    text-align: center;
+}
+
+.overlay-box a:hover{
+    background-color: grey;
+    color: black;
+}

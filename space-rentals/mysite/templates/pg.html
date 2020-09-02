@@ -1,0 +1,53 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block body %}
+    <section class="pg">
+        <div class="card">
+            <div class="card-img">
+                <img src="{{pg.image.url}}" alt="">
+            </div>
+            <div class="content">
+                <div class="card-content-head">
+                    {{pg.name}}
+                </div>
+                <div class="card-content-body">
+                    <div class="desc">{{pg.desc}}</div>
+                    <br>
+                    <div class="type">For : {{pg.type}}</div>
+                    <div class="phone">Phone: <a href="tel:9772976368">{{pg.phone}}</a></div>
+                    <div class="address">Address : {{pg.address}}</div>
+                    <br>
+                    <div class="row">
+                        <a href="booking?id={{pg.pid}}" class="card-btn">Book now! </a>
+                        <a href="#" class="card-btn">{{pg.price}} rs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container" id="contact">
+        <h2>Share Your reviews !!!!</h2>
+        <form action="pgName?id={{pg.pid}}" class="form" method="post">
+        {% csrf_token %}
+            <input type="number" required placeholder="Enter your ratings" name="ratings">
+            <textarea name="desc" id="desc" cols="30" rows="6" placeholder="enter your reviews here"></textarea>
+            <button class="btn">Submit</button>
+        </form>
+    </section>
+    <section class="reviews">
+        <h1>Reviews by people</h1>
+        {% for review in reviews %}
+        <div class="card" style="justify-content:none;">
+            <div class="content">
+                <div class="card-content-head">{{review.by.username}}</div>
+                <div class="card-content-body">
+                    {{review.desc}}
+                </div>
+                <div class="card-content-body">
+                   Ratings: {{review.ratings}}/10
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+{% endblock body %}

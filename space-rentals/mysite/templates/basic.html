@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Rentals</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/overlay.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pgPage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/phone.css' %}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{% static 'images/logo1.Pk8' %}" alt="logo">
+        </div>
+        <ul class="navlist" id="navlist">
+            <li><a href="/">Home</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="pgList">View Pgs</a></li>
+            {% block userNav %}
+            {{navbar.user|safe}}
+            {{navbar.button|safe}}
+            {% endblock userNav %}
+        </ul>
+        <div class="burger" id="burger" onclick="showNav()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+    <div class="overlay" id="overlay">
+        <div class="close" id="close" onclick="closeNav()">&times;</div>
+        <div class="overlay-box">
+            <a href="/">Home</a>
+            <a href="/#about">About</a>
+            <a href="/#services">Services</a>
+            <a href="pgList">View Pgs</a>
+            {% block userOverlay %}
+            {{overlay.user|safe}}
+            {{overlay.button|safe}}
+            {% endblock userOverlay %}
+        </div>
+    </div>
+    {% block body %}
+    {% endblock body %}
+
+
+    <footer>
+        <div class="social">
+            <a href="#"><img src="{% static 'images/gmail.png' %}" alt=""></a>
+            <a href="#"><img src="{% static 'images/tw.jpg' %}" alt=""></a>
+            <a href="#"><img src="{% static 'images/fb.png' %}" alt=""></a>
+            <a href="#"><img src="{% static 'images/insta.jpg' %}" alt=""></a>
+        </div>
+        <div class="container">
+            <h3>All rights reserved &copy; |Space Rentals</h3>
+        </div>
+    </footer>
+
+        <script>
+        {% for message in messages %}
+        alert("{{message.tag}}: {{message}}")
+        {% endfor %}
+        </script>
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+
+</html>

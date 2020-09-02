@@ -1,0 +1,20 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block body %}
+    <h1 style="text-align: center;">Here Are the list of all the pgs</h1>
+    <section class="pgList" style="min-height:70vh">
+    {% for pg in pgs %}
+        <div class="card">
+            <div class="card-img">
+                <img src="{{pg.image.url}}" alt="">
+            </div>
+            <div class="card-content">
+                <div class="card-content-head">{{pg.name}}</div>
+                <div class="card-content-body">{{pg.desc}}.</div>
+                <a href="pgName?id={{pg.pid}}" class="card-btn">View More</a>
+                <a href="#" class="card-btn">{{pg.price}}Rs</a>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+{% endblock body %}
